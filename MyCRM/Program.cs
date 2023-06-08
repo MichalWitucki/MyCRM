@@ -5,12 +5,15 @@
         static void Main(string[] args)
         {
             bool exit = false;
+            MenuActionService menuService = new MenuActionService();
+            menuService = MenuActionService.InitializeMenu(menuService);
+            CompanyService companyService = new CompanyService();
             do
             {
                 Console.WriteLine("CRM. Wybierz opcję:");
-                MenuActionService menuService = new MenuActionService();
-                menuService = MenuActionService.InitializeMenu(menuService);
+                
                 menuService.GetMenuByMenuName("main");
+                Console.Write("=> ");
                 var operation = Console.ReadKey();
                 Console.WriteLine();
                 switch (operation.KeyChar)
@@ -18,19 +21,17 @@
                     case '1':
                         Console.Clear();
                         menuService.GetMenuByMenuName("company");
-                        operation = Console.ReadKey();
-                        CompanyService companyService = new CompanyService();
-                        companyService.CompanyServiceAction();
+                        companyService.CompanyServiceMenuAction();
                         break;
                     case '2':
                         Console.Clear();
                         menuService.GetMenuByMenuName("person");
-                        operation = Console.ReadKey();
+                        
                         break;
                     case '3':
                         Console.Clear();
                         menuService.GetMenuByMenuName("project");
-                        operation = Console.ReadKey();
+                        
                         break;
                     case '4':
 
