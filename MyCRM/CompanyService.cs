@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace MyCRM
 {
     public class CompanyService
@@ -13,9 +14,9 @@ namespace MyCRM
         public CompanyService()
         {
             Companies = new List<Company>();
-            Companies.Add(new Company() { Id = 1, City = "aaaa", Street = "aaaa", Name = "AAAA" });
-            Companies.Add(new Company() { Id = 2, City = "bbbb", Street = "bbbb", Name = "BBBB" });
-            Companies.Add(new Company() { Id = 3, City = "cccc", Street = "cccc", Name = "CCCC" });
+            Companies.Add(new Company() { Id = 1, City = "aaaa", VoivodeshipId = 12, Street = "aaaa", Name = "AAAA" });
+            Companies.Add(new Company() { Id = 2, City = "bbbb", VoivodeshipId = 12, Street = "bbbb", Name = "BBBB" });
+            Companies.Add(new Company() { Id = 3, City = "cccc", VoivodeshipId = 13, Street = "cccc", Name = "CCCC" });
         }
         public void CompanyServiceMenuAction()
         {
@@ -53,8 +54,8 @@ namespace MyCRM
         }
         private int getId()
         {
-            var userId = Console.ReadLine();
-            if (int.TryParse(userId, out int id))
+            var chosenId = Console.ReadLine();
+            if (int.TryParse(chosenId, out int id))
                 return id;
             else
                 return 0;
@@ -65,8 +66,14 @@ namespace MyCRM
             Console.WriteLine("Dodawanie nowej firmy.");
             Console.Write("Nazwa firmy: ");
             company.Name = Console.ReadLine();
+            foreach (var voivodeship in Helpers.voivodeships)
+                Console.Write($"{voivodeship.Key} = {voivodeship.Value}, ");
+            Console.WriteLine();
             Console.Write("Id województwa: ");
- 
+            if (int.TryParse(Console.ReadLine(), out int voivodeshipId))
+                company.VoivodeshipId = voivodeshipId;
+            else
+                Console.WriteLine("Błędne Id województwa. Województwo nie zostało ustawione.");
             Console.Write("Miasto: ");
             company.City = Console.ReadLine();
             Console.Write("Ulica: ");
@@ -92,7 +99,14 @@ namespace MyCRM
             {
                 Console.Write("Nazwa firmy: ");
                 editCompany.Name = Console.ReadLine();
-                //Console.Write("Województwo: ");
+                foreach (var voivodeship in Helpers.voivodeships)
+                    Console.Write($"{voivodeship.Key} = {voivodeship.Value}, ");
+                Console.WriteLine();
+                Console.Write("Id województwa: ");
+                if (int.TryParse(Console.ReadLine(), out int voivodeshipId))
+                    editCompany.VoivodeshipId = voivodeshipId;
+                else
+                    Console.WriteLine("Błędne Id województwa. Województwo nie zostało zmienione.");
                 Console.Write("Miasto: ");
                 editCompany.City = Console.ReadLine();
                 Console.Write("Ulica: ");
@@ -124,11 +138,9 @@ namespace MyCRM
 
         private void ShowCompanyList()
         {
-            Console.WriteLine("Id\tNazwa\t\t\tMiasto\t\t\tUlica");
+            Console.WriteLine("Id / Nazwa / Województwo / Miasto / Ulica");
             foreach (var company in Companies)
-            {
-                Console.WriteLine($"{company.Id}\t{company.Name}\t\t\t{company.City}\t\t\t{company.Street}.");
-            }
+                Console.WriteLine($"{company.Id} / {company.Name} / {Helpers.voivodeships[company.VoivodeshipId]} / {company.City} / {company.Street}.");
         }
     }
 }
