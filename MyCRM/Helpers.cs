@@ -28,5 +28,15 @@ namespace MyCRM
             {15 , "Wielkopolskie"},
             {16 , "Zachodniopomorskie" }
         };
+
+        public static int getId()
+        {
+            var chosenId = Console.ReadLine();
+            if (int.TryParse(chosenId, out int id))
+                return id;
+            else
+                return 0;
+        }
+
     }
 }

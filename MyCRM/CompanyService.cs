@@ -52,14 +52,7 @@ namespace MyCRM
             } while (!exit);
 
         }
-        private int getId()
-        {
-            var chosenId = Console.ReadLine();
-            if (int.TryParse(chosenId, out int id))
-                return id;
-            else
-                return 0;
-        }
+
         private void AddNewCompany()
         {
             Company company = new Company();
@@ -93,7 +86,7 @@ namespace MyCRM
         {
             Console.WriteLine("Edycja firmy.");
             Console.Write("Podaj Id firmy do edycji: ");
-            var editId = getId();
+            var editId = Helpers.getId();
             var editCompany = Companies.FirstOrDefault(x => x.Id == editId);
             if (editCompany != null)
             {
@@ -120,7 +113,7 @@ namespace MyCRM
         {
             Console.WriteLine("Usuwanie firmy.");
             Console.Write("Podaj Id firmy do usunięcia: ");
-            var removeId = getId();
+            var removeId = Helpers.getId();
             bool removed = false;
             foreach (var company in Companies)
             {

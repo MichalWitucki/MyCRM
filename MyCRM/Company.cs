@@ -32,6 +32,9 @@ namespace MyCRM
         public string Name { get; set; }
         public List<Person> Staff { get; set; }
 
-
+        public Company()
+        {
+            Staff = new List<Person>();
+        }
     }
 }
