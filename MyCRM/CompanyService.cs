@@ -14,9 +14,8 @@ namespace MyCRM
         public CompanyService()
         {
             Companies = new List<Company>();
-            Companies.Add(new Company() { Id = 1, City = "aaaa", VoivodeshipId = 12, Street = "aaaa", Name = "AAAA" });
-            Companies.Add(new Company() { Id = 2, City = "bbbb", VoivodeshipId = 12, Street = "bbbb", Name = "BBBB" });
-            Companies.Add(new Company() { Id = 3, City = "cccc", VoivodeshipId = 13, Street = "cccc", Name = "CCCC" });
+            Companies.Add(new Company() { Id = 0, City = "MyCity", VoivodeshipId = 12, Street = "Długa 11", Name = "MyCompany"});
+            Companies.ElementAt(0).Staff.Add(new Person() { Id = 1, FirstName = "Adam", LastName = "Małysz", Mail = "am@mycompany.com", PhoneNumber = 123 });
         }
         public void CompanyServiceMenuAction()
         {

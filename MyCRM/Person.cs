@@ -13,5 +13,7 @@ namespace MyCRM
         public string LastName { get; set; }
         public int PhoneNumber { get; set; }
         public string Mail { get; set; }
+        
+        public Helpers.UserType UserType { get; set; }
     }
 }

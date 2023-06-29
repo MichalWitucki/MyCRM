@@ -10,12 +10,12 @@ namespace MyCRM
     {
         public static Dictionary<int, string> voivodeships = new Dictionary<int, string>
         {
-            { 0, "Brak" },
-            { 1, "Dolnośląskie" },
-            { 2, "Kujawsko-Pomorskie" },
+            {0, "Brak" },
+            {1, "Dolnośląskie" },
+            {2, "Kujawsko-Pomorskie" },
             {3, "Lubelskie"},
             {4, "Lubuskie" },
-            {5,"Łódzkie"},
+            {5, "Łódzkie"},
             {6, "Małopolskie"},
             {7 , "Mazowieckie"},
             {8 , "Opolskie"},
@@ -28,6 +28,13 @@ namespace MyCRM
             {15 , "Wielkopolskie"},
             {16 , "Zachodniopomorskie" }
         };
+
+        public enum UserType
+        {
+            Administrator,
+            SalesRep,
+            User
+        }
 
         public static int getId()
         {

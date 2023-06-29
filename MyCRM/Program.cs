@@ -9,6 +9,7 @@
             menuService = MenuActionService.InitializeMenu(menuService);
             CompanyService companyService = new CompanyService();
             PersonService personService = new PersonService();
+            ProjectService projectService = new ProjectService();
             do
             {
                 Console.WriteLine("CRM. Wybierz opcję:");
@@ -32,7 +33,7 @@
                     case '3':
                         Console.Clear();
                         menuService.GetMenuByMenuName("project");
-                        
+                        projectService.ProjectServiceMenuAction();
                         break;
                     case '4':
 
