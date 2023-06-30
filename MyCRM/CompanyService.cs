@@ -15,7 +15,10 @@ namespace MyCRM
         {
             Companies = new List<Company>();
             Companies.Add(new Company() { Id = 0, City = "MyCity", VoivodeshipId = 12, Street = "Długa 11", Name = "MyCompany"});
-            Companies.ElementAt(0).Staff.Add(new Person() { Id = 1, FirstName = "Adam", LastName = "Małysz", Mail = "am@mycompany.com", PhoneNumber = 123 });
+            Companies.ElementAt(0).Staff.Add(new Person() { Id = 1, FirstName = "Adam", LastName = "Małysz", Mail = "am@mycompany.com", PhoneNumber = 123,UserRoleId= 1});
+            Companies.ElementAt(0).Staff.Add(new Person() { Id = 2, FirstName = "Tomasz", LastName = "Tomasz", Mail = "tt@mycompany.com", PhoneNumber = 456,UserRoleId= 2});
+            Companies.ElementAt(0).Staff.Add(new Person() { Id = 3, FirstName = "Barbara", LastName = "Barbara", Mail = "bb@mycompany.com", PhoneNumber = 789,UserRoleId= 3});
+            Companies.ElementAt(0).Staff.Add(new Person() { Id = 4, FirstName = "Katarzyna", LastName = "Katarzyna", Mail = "kk@mycompany.com", PhoneNumber = 001,UserRoleId= 2});
         }
         public void CompanyServiceMenuAction()
         {

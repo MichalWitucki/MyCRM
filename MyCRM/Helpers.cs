@@ -29,12 +29,25 @@ namespace MyCRM
             {16 , "Zachodniopomorskie" }
         };
 
-        public enum UserType
+        public static Dictionary<int, string> userRoles = new Dictionary<int, string>
         {
-            Administrator,
-            SalesRep,
-            User
-        }
+            {0, "Administrator" },
+            {1, "SalesRep" },
+            {2, "User" },
+
+        };
+
+        public static Dictionary<int, string> statuses = new Dictionary<int, string>
+        {
+            {0, "Nowy" },
+            {1, "W opracowaniu" },
+            {2, "Planowany" },
+            {3, "Zgłoszony" },
+            {4, "Zrealizowamnu" },
+            {5, "Nie dotyczy" },
+            {6, "Utracony" },
+        };
+
 
         public static int getId()
         {

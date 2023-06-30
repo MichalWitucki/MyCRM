@@ -33,7 +33,7 @@
                     case '3':
                         Console.Clear();
                         menuService.GetMenuByMenuName("project");
-                        projectService.ProjectServiceMenuAction();
+                        projectService.ProjectServiceMenuAction(companyService);
                         break;
                     case '4':
 

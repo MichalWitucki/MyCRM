@@ -13,7 +13,20 @@ namespace MyCRM
         public string LastName { get; set; }
         public int PhoneNumber { get; set; }
         public string Mail { get; set; }
-        
-        public Helpers.UserType UserType { get; set; }
+
+        private int _userRoleId;
+
+        public int UserRoleId
+        {
+            get { return _userRoleId; }
+            set 
+            {
+                if (value > 0 && value <= Helpers.userRoles.Count)
+                    _userRoleId = value;
+                else
+                    Console.WriteLine("Błędne Id roli.");
+            }
+        }
+
     }
 }

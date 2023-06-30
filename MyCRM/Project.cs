@@ -18,20 +18,17 @@ namespace MyCRM
             set
             {
                 if (value > 0 && value < 17)
-                {
                     _voivodeshipId = value;
-                }
                 else
                     Console.WriteLine("Błędne Id województwa. Województwo nie zostało zmienione.");
             }
         }
         public string City { get; set; }
         public string Street { get; set; }
-        public string Status { get; set; }
-        //public Rep Rep { get; set; }
-
-        public Company Contractor { get; set; }
-        public Company IssuingAgency { get; set; }
-        public Company EngineeringOffice { get; set; }
+        public int StatusId { get; set; }
+        public int RepId { get; set; }
+        public int ContractorId { get; set; }
+        public int IssuingAgencyId { get; set; }
+        public int EngineeringOfficeId { get; set; }
     }
 }
